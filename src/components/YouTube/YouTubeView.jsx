@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 import "./YouTubeView.css";
 
 export default function YouTubeCounter(props) {
-  const [subscriberCount, setSubscriberCount] = useState();
+  const [viewCount, setViewCount] = useState();
 
   const [list, setList] = React.useState(props.arr);
   const [update, setUpdate] = React.useState("");
@@ -13,7 +13,7 @@ export default function YouTubeCounter(props) {
     setUpdate(event.target.value);
   }
   function handleAdd() {
-    const newList = list.concat(subscriberCount);
+    const newList = list.concat(viewCount);
 
     setList(newList);
   }
@@ -25,7 +25,7 @@ export default function YouTubeCounter(props) {
       .then((data) => {
         console.log(data);
         const count = data.items[0].statistics.viewCount;
-        setSubscriberCount(count);
+        setViewCount(count);
       });
   }, [list]);
 
