@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import config from "./Config2.js";
-import { Card, Button } from "react-bootstrap";
-import "./YouTubeView.css";
+import React from "react";
+import "antd/dist/antd.css";
+import { useState, useEffect } from "react";
+import { Card, Col, Row, Statistic, Button } from "antd";
+import config from "./Config2";
 
-export default function YouTubeCounter(props) {
+export default function AntdDeneme(props) {
   const [viewCount, setViewCount] = useState();
 
   const [list, setList] = React.useState(props.arr);
@@ -30,17 +31,28 @@ export default function YouTubeCounter(props) {
   }, [list]);
 
   return (
-    <div>
-      <Card style={{ marginTop: "20px" }}>
-        <Card.Header>View Count </Card.Header>
-        <Card.Body>
-          <Card.Title></Card.Title>
-          <Card.Text>{list}</Card.Text>
-          <Button variant="primary" onChange={handleChange} onClick={handleAdd}>
-            update
-          </Button>
-        </Card.Body>
-      </Card>
+    <div className="site-statistic-demo-card">
+      <Row gutter={16}>
+        <Col span={12}>
+          <Card>
+            <Statistic
+              title="View Count"
+              value={list}
+              precision={0}
+              valueStyle={{
+                color: "#3f8600"
+              }}
+            />
+            <Button
+              variant="outline-info"
+              onChange={handleChange}
+              onClick={handleAdd}
+            >
+              update
+            </Button>
+          </Card>
+        </Col>
+      </Row>
     </div>
   );
 }
