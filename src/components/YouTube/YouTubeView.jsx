@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, Col, Row, Statistic, Button } from "antd";
 import config from "./Config2";
 
-export default function AntdDeneme(props) {
+export default function YoutubeView(props) {
   const [viewCount, setViewCount] = useState();
 
   const [list, setList] = React.useState(props.arr);

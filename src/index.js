@@ -5,6 +5,8 @@ import App from "./App";
 
 import YouTubeView from "./components/YouTube/YouTubeView";
 import YouTubeSubs from "./components/YouTube/YouTubeSubs";
+import FacebookApi from "./components/YouTube/FacebookApi";
+import InstagramCount from "./components/YouTube/InstagramCount";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -14,5 +16,7 @@ root.render(
     <App />
     <YouTubeSubs arr={arr} />
     <YouTubeView arr={arr} />
+    <FacebookApi arr={arr} />
+    <InstagramCount arr={arr} />
   </StrictMode>
 );
