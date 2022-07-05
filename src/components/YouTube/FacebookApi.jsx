@@ -13,14 +13,11 @@ export default function FacebookApi(props) {
   const [engagementCount, setEngagementCount] = useState();
 
   const [list, setList] = React.useState(props.arr);
-
-  const [update, setUpdate] = React.useState("");
-  function handleChange(event) {
-    setUpdate(event.target.value);
-  }
+  const [date, setDate] = React.useState(0);
+  
   function handleAdd() {
-    const newList = list.concat(engagementCount);
-
+    const newList = list.concat({view :engagementCount,date: date });
+    setDate(date+1)
     setList(newList);
   }
 
@@ -35,6 +32,7 @@ export default function FacebookApi(props) {
         setEngagementCount(count);
       });
   }, [list]);
+
   return (
     <div className="site-statistic-demo-card">
       <ApiGraph list = {list}/>
@@ -51,7 +49,6 @@ export default function FacebookApi(props) {
             />
             <Button
               variant="outline-info"
-              onChange={handleChange}
               onClick={handleAdd}
             >
               update

@@ -8,14 +8,11 @@ export default function YoutubeSubs(props) {
   const [subscriberCount, setSubscriberCount] = useState();
 
   const [list, setList] = React.useState(props.arr);
-
-  const [update, setUpdate] = React.useState("");
-  function handleChange(event) {
-    setUpdate(event.target.value);
-  }
+  const [date, setDate] = React.useState(0);
+  
   function handleAdd() {
-    const newList = list.concat(subscriberCount);
-
+    const newList = list.concat({view:subscriberCount,date: date});
+    setDate(date+1)
     setList(newList);
   }
   useEffect(() => {
@@ -46,7 +43,6 @@ export default function YoutubeSubs(props) {
             />
             <Button
               variant="outline-info"
-              onChange={handleChange}
               onClick={handleAdd}
             >
               update

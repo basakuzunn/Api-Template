@@ -9,13 +9,12 @@ export default function YoutubeView(props) {
   const [viewCount, setViewCount] = useState();
 
   const [list, setList] = React.useState(props.arr);
-  const [update, setUpdate] = React.useState("");
+  
+  const [date, setDate] = React.useState(0);
 
-  function handleChange(event) {
-    setUpdate(event.target.value);
-  }
   function handleAdd() {
-    const newList = list.concat(viewCount);
+    const newList = list.concat({view: viewCount, date: date});
+    setDate(date+1)
 
     setList(newList);
   }
@@ -30,7 +29,7 @@ export default function YoutubeView(props) {
         setViewCount(count);
       });
   }, [list]);
-
+  console.log(list)
   return (
     <div className="site-statistic-demo-card">
       <ApiGraph list = {list}/>
@@ -47,7 +46,6 @@ export default function YoutubeView(props) {
             />
             <Button
               variant="outline-info"
-              onChange={handleChange}
               onClick={handleAdd}
             >
               update
