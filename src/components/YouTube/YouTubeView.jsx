@@ -3,6 +3,7 @@ import "antd/dist/antd.css";
 import { useState, useEffect } from "react";
 import { Card, Col, Row, Statistic, Button } from "antd";
 import config from "./Config2";
+import ApiGraph from './ApiGraph';
 
 export default function YoutubeView(props) {
   const [viewCount, setViewCount] = useState();
@@ -32,11 +33,12 @@ export default function YoutubeView(props) {
 
   return (
     <div className="site-statistic-demo-card">
+      <ApiGraph list = {list}/>
       <Row gutter={16}>
         <Col span={12}>
           <Card>
             <Statistic
-              title="View Count"
+              title="Youtube View Count"
               value={list}
               precision={0}
               valueStyle={{

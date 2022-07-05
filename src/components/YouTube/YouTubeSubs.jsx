@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { useState, useEffect } from "react";
 import { Card, Col, Row, Statistic, Button } from "antd";
 import config from "./Config";
-
+import ApiGraph from './ApiGraph';
 export default function YoutubeSubs(props) {
   const [subscriberCount, setSubscriberCount] = useState();
 
@@ -32,11 +32,12 @@ export default function YoutubeSubs(props) {
 
   return (
     <div className="site-statistic-demo-card">
+      <ApiGraph list = {list}/>
       <Row gutter={16}>
         <Col span={12}>
           <Card>
             <Statistic
-              title="Subscriber Count"
+              title="Youtube Subscriber Count"
               value={list}
               precision={0}
               valueStyle={{

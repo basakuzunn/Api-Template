@@ -2,8 +2,11 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Card, Col, Row, Statistic, Button, Input, Space } from "antd";
 import { useState, useEffect } from "react";
+import { LineChart, Line } from 'recharts';
+import ApiGraph from './ApiGraph';
 
 export default function FacebookApi(props) {
+ 
   const { Search } = Input;
   const onSearch = (value) => console.log(value);
 
@@ -34,6 +37,7 @@ export default function FacebookApi(props) {
   }, [list]);
   return (
     <div className="site-statistic-demo-card">
+      <ApiGraph list = {list}/>
       <Row gutter={16}>
         <Col span={12}>
           <Card>
@@ -55,6 +59,7 @@ export default function FacebookApi(props) {
           </Card>
         </Col>
       </Row>
+      
     </div>
   );
 }
